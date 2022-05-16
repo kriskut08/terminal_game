@@ -13,10 +13,20 @@ import json
 #        ['-', '-', '-', '-', '-', '-', '-', '-', '-', '-'], 
 #        ['-', '-', '-', '-', '-', '-', '-', '-', '-', '-'], 
 #        ['-', '-', '-', '-', '-', '-', '-', '-', '-', '#']]
-f = open('tabla.json')
-data = json.load(f)
-board = data['board']
-#make a terminal clear function
+
+
+#open tabla.json and load it's content into a variable
+f = open("tabla.json")
+l = json.load(f)
+
+board = []
+
+for i in l['tabla']:
+	s = i.split(' ')
+	board.append(s)
+
+
+
 def clear():
 	os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -43,7 +53,7 @@ def on_release(key):
 		return False
 
 
-x,y = 9,5
+x,y = int(l["kezdes"][0]),int(l["kezdes"][2])
 
 def move(key):
 	global x,y
@@ -68,6 +78,9 @@ def move(key):
 			x+=1
 			board[x][y] = 'X'
 	
+#a játék kezdete:
+clear() 
+print(l["message"])
 board[x][y] = 'X'
 printboard(board)
 
