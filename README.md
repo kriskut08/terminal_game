@@ -1,3 +1,3 @@
 # terminal_game
 
-Umm jövőbeli én....... Sok sikert :D
+Már csak néhány sornyi kód :'D
