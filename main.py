@@ -44,14 +44,12 @@ def load_board():
 	global y
 	x,y = int(l["kezdes"][0]),int(l["kezdes"][2])
 	tabla += 1
-	print(tabla)
 	board = []
 	try:
 		for i in l['tabla{0}'.format(str(tabla))]:
 			s = i.split(' ')
 			board.append(s)
 	except:
-		print(l["exit_message"])
 		quit()		
 	board[x][y] = 'X'
 
@@ -98,8 +96,11 @@ def start():
 	print(l["message"])
 	board[x][y] = 'X'
 	printboard(board)
-
-	with keyboard.Listener(on_release=on_release) as listener:
-		listener.join()
+	try:
+		with keyboard.Listener(on_release=on_release) as listener:
+			listener.join()
+	except:
+		print(l["exit_message"])
+		quit()
 if tabla==-1:
     start()
