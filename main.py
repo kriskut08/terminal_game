@@ -5,7 +5,7 @@ import json
 f = open("tabla.json")
 l = json.load(f)
 
-
+print("anyád")
 
 
 def clear():
